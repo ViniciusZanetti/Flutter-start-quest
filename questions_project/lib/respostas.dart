@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class Resposta extends StatelessWidget {
   final String texto;
 
-  Resposta(this.texto);
+  final void Function() onSelect;
+
+  Resposta(this.texto, this.onSelect);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
+      width: double.infinity,
       child: TextButton(
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.blue)),
@@ -16,7 +18,7 @@ class Resposta extends StatelessWidget {
           this.texto,
           style: TextStyle(color: Colors.white),
         ),
-        onPressed: () {},
+        onPressed: onSelect,
       ),
     );
   }
